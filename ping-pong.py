@@ -21,6 +21,10 @@ class GameSprite(sprite.Sprite):
 
 
 
+
+
+
+clock = time.Clock()
 class Player(GameSprite):
     def update_Left(self):
         keys = key.get_pressed()
@@ -34,10 +38,23 @@ class Player(GameSprite):
             self.rect.y -= self.speed
         if keys[K_DOWN] and self.rect.y < 520:
             self.rect.y += self.speed
+game = True
+finish = False
 
+speed_x = 3
+speed_y = 3
 #fps 
+rocket1 = Player('optimus.png', 20, 250, 5, 100, 200)
 
-clock = time.Clock()
+rocket2 = Player('mega.png', 400, 250, 5, 100, 200)
+
+ball = Player('ball.png', 250, 250, 5, 50, 50)
+font.init()
+font = font.Font(None, 50)
+lose1 = font.render('Optimus lose', True, (150, 0, 0))
+lose2 = font.render('Megatron lose', True, (150, 0, 0))
+
+
 
 display.update()
 clock.tick(60)
