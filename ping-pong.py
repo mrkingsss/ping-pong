@@ -2,8 +2,8 @@ from pygame import *
 
 #window size and background's color (rgb)
 window = display.set_mode((600, 600))
-back = (133, 5, 50)
-window.fill(back)
+back = (15, 50, 90)
+
 #classes
 
 class GameSprite(sprite.Sprite):
@@ -56,5 +56,21 @@ lose2 = font.render('Megatron lose', True, (150, 0, 0))
 
 
 
-display.update()
-clock.tick(60)
+while game:
+    window.fill(back)
+    for e in event.get():
+        if e.type == QUIT:
+    
+            game = False
+    if finish != True:
+        rocket1.reset()
+        rocket2.reset()
+        ball.reset()
+        ball.rect.x += speed_x
+        ball.rect.y += speed_y
+        rocket1.update_Left()
+        rocket2.update_Right()
+
+
+    display.update()
+    clock.tick(60)
